@@ -2,7 +2,8 @@
 
 int main()
 {
-	/* 3 */ printf("%i",ft_atoi((e + "--1").c_str())); 
-	/* 4 */ printf("%i",ft_atoi((e + "++1").c_str()));
-	/* 13 */printf("%i",ft_atoi("+-42") == 0);
+	char s[] = "tripouille";
+	char s2[] = "ltripouiel";
+	char s3[] = "";
+	/* 1 */ printf("%s", ft_strrchr(s, 't' + 256));
 }

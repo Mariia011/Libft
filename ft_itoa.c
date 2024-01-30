@@ -3,11 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 20:35:04 by marikhac          #+#    #+#             */
-/*   Updated: 2024/01/27 20:35:06 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:12:28 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "stdio.h"
 
+char *convert(int n)
+{
+
+}
+
+char *ft_itoa(int n)
+{
+    char *num;
+    if(!n)
+        return (NULL);
+    if(n < 0)
+    {
+        
+    }
+
+}
