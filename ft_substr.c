@@ -6,13 +6,13 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:17:45 by marikhac          #+#    #+#             */
-/*   Updated: 2024/01/30 13:56:03 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:20:53 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *fill(char const *s, unsigned int start, size_t len)
+static char    *fill(char const *s, unsigned int start, size_t len)
 {
     char    *new_str;
     size_t  i;

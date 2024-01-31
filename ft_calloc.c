@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:47:43 by marikhac          #+#    #+#             */
-/*   Updated: 2024/01/27 16:31:40 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:20:53 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_check(size_t count, size_t size)
+static int ft_check(size_t count, size_t size)
 {
 	return(((long long)count < 0 && (long long)size != 0)
 		|| ((long long)count != 0 && (long long)size < 0)

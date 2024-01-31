@@ -1,9 +1,14 @@
 #include "/Users/marikhac/Desktop/libft/libft.h"
 
+char foo(unsigned int i, char c)
+{
+	return (c + i);
+}
+
 int main()
 {
-	char s[] = "tripouille";
-	char s2[] = "ltripouiel";
-	char s3[] = "";
-	/* 1 */ printf("%s", ft_strrchr(s, 't' + 256));
+	char *str = ft_strmapi("1234", foo);
+	printf("%s\n", str);
+	free(str);
+	return 0;
 }

@@ -6,11 +6,12 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:05:55 by marikhac          #+#    #+#             */
-/*   Updated: 2024/01/30 16:30:40 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:20:53 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void    ft_putendl_fd(char *s, int fd)
 {
     if(!s)
