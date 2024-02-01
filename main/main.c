@@ -1,14 +1,13 @@
 #include "/Users/marikhac/Desktop/libft/libft.h"
 
-char foo(unsigned int i, char c)
+/*char foo(unsigned int i, char c)
 {
 	return (c + i);
-}
+}*/
 
 int main()
 {
-	char *str = ft_strmapi("1234", foo);
-	printf("%s\n", str);
-	free(str);
+	char *str = ft_itoa(123);
+	printf("%s", str);
 	return 0;
 }

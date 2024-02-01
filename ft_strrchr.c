@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:05:49 by marikhac          #+#    #+#             */
-/*   Updated: 2024/01/31 14:34:47 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:41:40 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
-	i = ft_strlen(s) + 1;
-	char *ptr;
+	int		i;
+	char	*ptr;
+
 	ptr = (char *)s;
-	if(s != 0)
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-	while(i >= 0)
-	{
-		if(ptr[i] == c)
+		if (ptr[i] == (unsigned char)c)
 			return (ptr + i);
 		i--;
 	}
-	}
-	return(NULL);
+	return (NULL);
 }

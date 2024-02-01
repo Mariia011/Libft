@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.z                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 20:35:04 by marikhac          #+#    #+#             */
-/*   Updated: 2024/01/31 17:27:09 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:41:18 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static size_t _dig_count(int n)
 {
     size_t  count;
-    
-    count = 0; 
+
+    count = 0;
     while (n != 0)
     {
         n /= 10;
@@ -25,7 +25,7 @@ static size_t _dig_count(int n)
     return (count);
 }
 
-static char *_convert(int *n)
+static char *convert(int *n)
 {
     char    *str;
     size_t  size;
@@ -45,15 +45,26 @@ static char *_convert(int *n)
     return (str);
 }
 
+static char c_write(size_t n)
+{
+	return((n%10) + '0');
+}
+
 char *ft_itoa(int n)
 {
     char    *str;
     int     len;
+	int		i;
 
-    str = _convert(n);
-    len = ft_strlen(str) - 1;
-    while(len >= 0)
-    {
-
-    }
+	str = convert(&n);
+	len = ft_strlen(str) - 1;
+	i = 0;
+	while(len >= 0)
+	{
+		str[i] = c_write(n);
+		n = n/10;
+		i++;
+		len--;
+	}
+	return(str);
 }
