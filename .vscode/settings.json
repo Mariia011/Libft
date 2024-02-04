@@ -4,6 +4,7 @@
 		"stdio.h": "c",
 		"stdexcept": "c",
 		"string": "c",
-		"xlocale.h": "c"
+		"xlocale.h": "c",
+		"*.z": "c"
 	}
 }

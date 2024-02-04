@@ -6,65 +6,68 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 20:35:04 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/01 17:41:18 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:46:17 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t _dig_count(int n)
+static int dgt_count(int n)
 {
-    size_t  count;
+    int  count;
 
     count = 0;
+	if(n == 0)
+		return(1);
     while (n != 0)
     {
-        n /= 10;
         count++;
+        n /= 10;
     }
     return (count);
 }
 
-static char *convert(int *n)
+static int	count_size(int n)
 {
-    char    *str;
-    size_t  size;
-    int bias;
-
-    bias = 1;
-    if (*n < 0)
-        bias++;
-    size = _dig_count(*n) + bias;
-    str = (char *)malloc(size); // check
-    if (*n < 0)
-    {
-        str[0] = '-';
-        *n *= -1;
-    }
-    str[size - 1] = '\0';
-    return (str);
+	return (dgt_count(n) + (n < 0));
 }
 
-static char c_write(size_t n)
+static char	fill_malloc(int n)
 {
-	return((n%10) + '0');
+	if(n < 0)
+		n *= -1;
+    return ((n % 10) + '0');
+}
+
+static char	*malloc_str(int n)
+{
+	char	*str;
+	int 	size;
+	int		i;
+
+	i = 0;
+	size = count_size(n);
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (!str)
+		return (NULL);
+	str[size] = '\0';
+	if(n < 0)
+	{
+		str[i] = '-';
+		i++;
+	}
+	while (size > i)
+	{
+		size--;
+		str[size] = fill_malloc(n);
+		n /= 10;
+	}
+	return (str);
 }
 
 char *ft_itoa(int n)
 {
-    char    *str;
-    int     len;
-	int		i;
-
-	str = convert(&n);
-	len = ft_strlen(str) - 1;
-	i = 0;
-	while(len >= 0)
-	{
-		str[i] = c_write(n);
-		n = n/10;
-		i++;
-		len--;
-	}
-	return(str);
+	if(n == INT_MIN)
+		return(ft_strdup("-2147483648"));
+	return(malloc_str(n));
 }

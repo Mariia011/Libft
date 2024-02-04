@@ -1,22 +1,55 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_putnbr_fd.z                                     :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/27 20:37:13 by marikhac          #+#    #+#              #
-#    Updated: 2024/02/01 12:53:27 by marikhac         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.z                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/27 20:37:13 by marikhac          #+#    #+#             */
+/*   Updated: 2024/02/04 12:54:28 by marikhac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
+
+static int	dgt_count(int n)
+{
+	int	count;
+
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}
+
+static char	*ft_putnbr(int n)
+{
+	char	*str;
+	int		i;
+
+	i = dgt_count(n);
+	if (n < 0)
+		i++;
+	while (n >= 0)
+	{
+		str[i] = n % 10 + '0';
+		n /= 10;
+		i--;
+	}
+	return (str);
+}
 
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	*str;
-	if(!n)
+
+	if (!n)
 		return ;
-	str = ft_itoa(n);
+	str = ft_putnbr(n);
 	write(fd, str, ft_strlen(str));
 }
