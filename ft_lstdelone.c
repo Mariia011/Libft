@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.z                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/04 17:16:24 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/04 20:17:27 by marikhac         ###   ########.fr       */
+/*   Created: 2024/02/04 17:20:10 by marikhac          #+#    #+#             */
+/*   Updated: 2024/02/05 14:32:59 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

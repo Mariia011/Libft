@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:51:07 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/04 15:43:56 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:27:18 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*str;
 	unsigned int	i;
 
-	if(!s || !f)
-		return(NULL);
+	if (!s || !f)
+		return (NULL);
 	len = ft_strlen(s);
 	str = (char *)malloc(len + 1);
 	if (!str)

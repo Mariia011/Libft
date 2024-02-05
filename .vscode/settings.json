@@ -5,6 +5,7 @@
 		"stdexcept": "c",
 		"string": "c",
 		"xlocale.h": "c",
-		"*.z": "c"
+		"*.z": "c",
+		"bitset": "c"
 	}
 }

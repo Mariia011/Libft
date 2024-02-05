@@ -6,25 +6,25 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 20:35:04 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/04 17:46:17 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:27:37 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int dgt_count(int n)
+static int	dgt_count(int n)
 {
-    int  count;
+	int	count;
 
-    count = 0;
-	if(n == 0)
-		return(1);
-    while (n != 0)
-    {
-        count++;
-        n /= 10;
-    }
-    return (count);
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		count++;
+		n /= 10;
+	}
+	return (count);
 }
 
 static int	count_size(int n)
@@ -34,15 +34,15 @@ static int	count_size(int n)
 
 static char	fill_malloc(int n)
 {
-	if(n < 0)
+	if (n < 0)
 		n *= -1;
-    return ((n % 10) + '0');
+	return ((n % 10) + '0');
 }
 
 static char	*malloc_str(int n)
 {
 	char	*str;
-	int 	size;
+	int		size;
 	int		i;
 
 	i = 0;
@@ -51,7 +51,7 @@ static char	*malloc_str(int n)
 	if (!str)
 		return (NULL);
 	str[size] = '\0';
-	if(n < 0)
+	if (n < 0)
 	{
 		str[i] = '-';
 		i++;
@@ -65,9 +65,9 @@ static char	*malloc_str(int n)
 	return (str);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	if(n == INT_MIN)
-		return(ft_strdup("-2147483648"));
-	return(malloc_str(n));
+	if (n == INT_MIN)
+		return (ft_strdup("-2147483648"));
+	return (malloc_str(n));
 }
