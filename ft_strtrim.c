@@ -6,44 +6,38 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:49:56 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/05 18:10:10 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:49:28 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	check_start(char const *s1, char const *set)
+static int	check_str(char c, char const *set)
 {
-	size_t	count;
-
-	count = 0;
-	while (s1[count] && ft_strchr(set, s1[count]) != NULL)
-		count++;
-	if (count == ft_strlen(s1))
-		return (0);
-	return (count);
+	while (*set)
+	{
+		if (*set == c)
+			return (1);
+		set++;
+	}
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	len;
-	size_t	start;
-	size_t	end;
 	char	*str;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (NULL);
-	start = check_start(s1, set);
-	if (!start)
-		return (ft_strdup(""));
-	end = ft_strlen(s1) - 1;
-	while (end > start && ft_strchr(set, s1[end]) != NULL)
-		end--;
-	len = end - start + 1;
+	while (s1 && check_str((char)*s1, set))
+		s1++;
+	len = ft_strlen(s1);
+	while (len && check_str(s1[len - 1], set))
+		len--;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	ft_memcpy(str, s1 + start, len);
-	str[len] = '\0';
+	ft_strlcpy(str, s1, len + 1);
 	return (str);
 }

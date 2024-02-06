@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:59:03 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/05 17:26:10 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:11:01 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 void				ft_bzero(void *s, size_t n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
-// void    ft_putnbr_fd(int n, int fd);
+void    			ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				*ft_memset(void *b, int c, size_t len);
