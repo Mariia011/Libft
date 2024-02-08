@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.z                                         :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 18:34:09 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/06 19:47:45 by marikhac         ###   ########.fr       */
+/*   Created: 2024/02/04 20:10:38 by marikhac          #+#    #+#             */
+/*   Updated: 2024/02/07 19:01:42 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(char const *str, char const c)
+static void	_lstmap(t_list *other, t_list **head, void *(*f)(void *),
+		void (*del)(void *))
 {
-	int	word;
-	int	flag;
-
-	word = 0;
-	flag =  1;
-	while (*str)
-	{
-		if (*str != c)
-			flag = 1;
-		else if (*str == c && flag)
-		{
-			word++;
-			flag = 0;
-		}
-		str++;
-	}
-	return (word + flag);
+	if (!other)
+		return ;
+	*head = ft_lstnew(f(other->content));
+	_lstmap(other->next, &((*head)->next), f, del);
 }
 
-char	**ft_split(char const *s, char c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (!s)
+	t_list	*head;
+
+	if (!lst || !f || !del)
 		return (NULL);
-	return
+	_lstmap(lst, &head, f, del);
+	return (head);
 }

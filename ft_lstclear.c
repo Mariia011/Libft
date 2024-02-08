@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 20:05:40 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/05 17:26:53 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:32:54 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*temp;
-	t_list	*ssr;
+	t_list	*cccp;
 
-	if (!lst || !del)
+	if (!lst || !(*lst) || !del)
 		return ;
-	temp = *lst;
-	while (temp != NULL)
+	while (*lst != NULL)
 	{
-		ssr = temp->next;
-		del(ssr->content);
-		free(ssr);
-		temp = ssr;
+		cccp = ((*lst)->next);
+		ft_lstdelone((*lst), del);
+		(*lst) = cccp;
 	}
-	*lst = NULL;
 	return ;
 }
